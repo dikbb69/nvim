@@ -1,0 +1,9 @@
+[[plugins]] # Unite.vim
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]] # vimfilerが依存
+repo   = 'Shougo/unite.vim'
+
+[[plugins]] # VSCodeっぽいファイラ（後継としてdefx.nvimが開発中）
+repo = 'Shougo/vimfiler'
