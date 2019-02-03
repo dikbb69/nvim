@@ -46,6 +46,48 @@ set clipboard=unnamed
 " イントロダクション非表示
 set shortmess+=I
 
+"---------------------
+" vim側の画面分割
+"---------------------
+" 画面分割
+nmap ss :split<Return><C-w>w
+nmap sv :vsplit<Return><C-w>w
+" 画面移動
+nmap <Space> <C-w>w
+map s<left> <C-w>h
+map s<up> <C-w>k
+map s<down> <C-w>j
+map s<right> <C-w>l
+map sh <C-w>h
+map sk <C-w>k
+map sj <C-w>j
+map sl <C-w>l
+" 画面リサイズ
+nmap <C-w><left> <C-w><
+nmap <C-w><right> <C-w>>
+nmap <C-w><up> <C-w>+
+nmap <C-w><down> <C-w>-
+
+"---------------------
+" vimfilerの設定（ファイル表示）
+"---------------------
+nmap sf :VimFilerBufferDir<Return>
+nmap sF :VimFilerExplorer -find<Return>
+nmap sb :Unite buffer<Return>
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_enable_auto_cd = 0
+let g:vimfiler_tree_leaf_icon = ''
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_marked_file_icon = '✓'
+
+"---------------------
+" aleの設定（Lintエラー）
+"---------------------
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 "####################################
 "            deinの設定
 "####################################
@@ -54,6 +96,12 @@ set shortmess+=I
 let s:dein_dir = expand('~/.cache/dein')
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" deopleteの使用
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_completion_start_length = 1
+" deopplete-goの設定
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " dein.vim がなければ github から落としてくる
 if &runtimepath !~# '/dein.vim'

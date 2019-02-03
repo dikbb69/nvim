@@ -7,3 +7,9 @@ repo   = 'Shougo/unite.vim'
 
 [[plugins]] # VSCodeっぽいファイラ（後継としてdefx.nvimが開発中）
 repo = 'Shougo/vimfiler'
+
+[[plugins]] # VSCodeっぽい非同期のエラー表示
+repo = 'w0rp/ale'
+
+
+

@@ -2,10 +2,27 @@
 repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = ['go']
-
-[[plugins]]
 repo = 'vim-jp/vim-go-extra'
-on_ft = ['go']
+on_ft = 'go'
+
+[[plugins]] # goコマンド補完
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+# [[plugins]] # vim-go代替
+# repo = 'zchee/nvim-go'
+# build = 'make'
+# on_ft = 'go'
+
+[[plugins]] # コード補完
+repo = 'Shougo/deoplete.nvim'
+# プラグインが dein.vim によって追加されたとき実行
+hook_add = 'let g:deoplete#enable_at_startup = 1'
+
+[[plugins]] # コード補完（Golang用）
+repo = 'zchee/deoplete-go'
+build = 'make'
+depends = ['deoplete.nvim']
+on_ft = 'go'
+
 
